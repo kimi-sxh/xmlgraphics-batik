@@ -589,10 +589,11 @@ public abstract class AbstractGraphicsNode implements GraphicsNode {
     /**
      * Returns true of an offscreen buffer is needed to render this node, false
      * otherwise.
+     * 蒙版先不考虑 否则蒙版的Path节点会被转成普通图片有锯齿
      */
     protected boolean isOffscreenBufferNeeded() {
         return ((filter != null) ||
-                (mask != null) ||
+              //  (mask != null) ||
                 (composite != null &&
                  !AlphaComposite.SrcOver.equals(composite)));
     }
